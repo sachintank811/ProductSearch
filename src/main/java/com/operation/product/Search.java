@@ -43,14 +43,14 @@ public class Search extends HttpServlet {
 					"ecommerceapp", "ecommerceapp");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from product where id = " + request.getParameter("product"));
-			out.println("<table border=1 width=50% height=50%>");
+			out.println("<table border=1>");
 			out.println("<tr><th>ProductId</th><th>SKU</th><th>ProductName</th><th>UnitPrice</th><tr>");
 			while (rs.next()) {
 				String n = rs.getString("id");
 				String s = rs.getString("sku");
 				String nm = rs.getString("name");
 				int u = rs.getInt("unit_price");
-				out.println("<tr><td>" + n + "</td><td>" + s + "</td><td>" + nm + "</td><td>" + s + "</td></tr>");
+				out.println("<tr><td>" + n + "</td><td>" + s + "</td><td>" + nm + "</td><td>" + u + "</td></tr>");
 			}
 			out.println("</table>");
 			out.println("</html></body>");
